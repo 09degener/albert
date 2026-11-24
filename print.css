@@ -1,0 +1,112 @@
+/* A two-colour print plate. Container units keep the type and screens in register
+   whether the sheet is a full portfolio illustration or a thumbnail in the job. */
+.print-art {
+  display: block;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  container-type: inline-size;
+  overflow: hidden;
+  background: #f6efde;
+  color: #152429;
+}
+.print-art__surface {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #f6efde;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1;
+  text-align: left;
+  font-style: normal;
+  text-transform: none;
+  user-select: none;
+}
+.print-art__imprint,
+.print-art__colophon {
+  position: absolute;
+  left: 5.2%;
+  right: 5.2%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 2.05cqw;
+  font-weight: 700;
+  letter-spacing: -.025em;
+  line-height: 1.05;
+}
+.print-art__imprint { top: 4.2%; }
+.print-art__imprint span:last-child,
+.print-art__colophon span:last-child { text-align: right; }
+.print-art__title {
+  position: absolute;
+  z-index: 1;
+  top: 9.7%;
+  left: 4.2%;
+  font-size: 23.1cqw;
+  font-weight: 800;
+  letter-spacing: -.092em;
+  line-height: .78;
+  color: #183bad;
+  mix-blend-mode: multiply;
+}
+.print-art__title span { display: block; position: relative; }
+.print-art__title span + span {
+  margin-left: 4.3cqw;
+  color: #ee3924;
+}
+.print-art__title span + span::after {
+  content: "passada";
+  position: absolute;
+  inset: 0;
+  transform: translate(.38cqw, .26cqw);
+  color: #2349cb;
+  mix-blend-mode: multiply;
+  clip-path: polygon(0 83%, 100% 69%, 100% 110%, 0 110%);
+}
+.print-art__field {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40.2%;
+  bottom: 10.6%;
+  isolation: isolate;
+  overflow: hidden;
+  background: #f6efde;
+}
+.print-art__ink {
+  display: block;
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+.print-art__ink--red {
+  inset: -25% 9% -30% -33%;
+  transform: rotate(-22deg);
+  background: repeating-radial-gradient(ellipse at 16% 58%,
+    #ec3c25 0 3.2cqw, transparent 3.3cqw 5.65cqw);
+  border-radius: 45% 46% 19% 21% / 59% 23% 42% 41%;
+}
+.print-art__ink--blue {
+  inset: -25% -14% -34% 25%;
+  transform: rotate(18deg);
+  background: repeating-radial-gradient(ellipse at 118% 17%,
+    #2044bb 0 2.45cqw, transparent 2.55cqw 5.45cqw);
+  border-radius: 65% 50% 50% 12% / 61% 34% 34% 33%;
+}
+.print-art__colophon {
+  bottom: 3.15%;
+  padding-top: 1.2cqw;
+  border-top: .25cqw solid currentColor;
+  text-transform: uppercase;
+  font-size: 1.65cqw;
+  letter-spacing: .015em;
+  line-height: 1.1;
+}
+.print-art__surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(83,63,32,.026) 2px 3px);
+}
